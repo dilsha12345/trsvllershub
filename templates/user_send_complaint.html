@@ -1,0 +1,48 @@
+{% include 'user_header.html' %}
+
+<center>
+	<div style=" background: url('/static/img/iii.jpg') no-repeat center / cover; 
+    height: 750px;
+    width: 100%;
+    display: table;
+    " class="">
+        <div class="hero-content">
+            <div class="hero-text">
+            	<center>
+	<h2 style="color: white">Complaint</h2>
+	<table class="table" style="width: 500px">
+		<form method="post">
+			<tr>
+				<th style="font-size: 30px;color: white">Complaint</th>
+				<td><input type="text" name="Complaint" class="form-control"></td>
+			</tr>
+				<tr>
+                <td colspan="2" align="center"><input  type="submit" name="Send" class="btn btn-primary" value="Send"></td>
+            </tr>
+		</form>
+	</table>
+<h2 style="color: white">View Complaints</h2>
+<table border="1" class="table"  style="width: 900px;background-color: black">
+	<thead style="background-color: white">
+	<tr>
+		<th style="color: black">Complaint</th>
+		<th style="color: black">Reply</th>
+		<th style="color: black">Date</th>
+	</tr>
+	</thead>
+	{% for row in data['complaint'] %}
+	<tr>
+		<td style="color: white">{{row['Complaint']}}</td>
+		<td style="color: white">{{row['Reply']}}</td>
+        <td style="color: white">{{row['Date']}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</center>
+
+</div>
+</div>
+</div>
+</center>
+
+{% include 'footer.html' %}

@@ -1,0 +1,99 @@
+{% include 'user_header.html' %}
+
+<center>
+
+<div style=" background: url('/static/img/iii.jpg') no-repeat center / cover; 
+    height: 750px;
+    width: 100%;
+    display: table;
+    " class="">
+        <div class="hero-content">
+            <div class="hero-text">
+            	<center>
+                <body><br>
+       <h1 style="font-size:35px;color: white">Manage Trip</h1>
+	<form method="post"><br>
+		<table>
+			<tr>
+				<th style="font-size:20px;color: white">Place</th>
+				<td><input class="form-control" placeholder="Place" name="Place"></td>
+			</tr>
+			<tr>
+				<th style="font-size:20px;color: white">Vehicle</th>
+				<td><select name="Vehicle" class="form-control">
+					{% for row in data['category'] %}
+					<option value="{{row['category_id']}}">{{row['Vehicle']}}</option>
+					{% endfor %}
+				</select></td>
+			</tr>
+			<tr>
+				<th style="font-size:20px;color: white">Description</th>
+				<td><input class="form-control"placeholder="Description" name="Description"></td>
+			</tr>
+			<tr>
+				<th style="font-size:20px;color: white">Trip start date</th>
+				<td><input class="form-control" placeholder="Tripstartdate" name="Tripstartdate"></td>
+			</tr>
+            <tr>
+				<th style="font-size:20px;color: white">Trip end date</th>
+				<td><input class="form-control" placeholder="Tripenddate" name="Tripenddate"></td>
+			</tr>
+			</tr>
+			<tr>
+				<th style="font-size:20px;color: white">Start time</th>
+				<td><input class="form-control" placeholder="Starttime" name="Starttime"></td>
+			</tr>
+			<tr>
+				<th style="font-size:20px;color: white">Start Place</th>
+				<td><input class="form-control" placeholder="StartPlace:" name="StartPlace"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center" style="font-size: 27px"><input type="submit" name="Submit" class="btn btn-primary" value="Submit"></td>
+			</tr>
+	</table>
+</center><br>
+<br>
+	<table border="1" class="table" style="width: 900px;background-color: black">
+		<thead style="background-color: white">
+	<tr>
+        <th style="color: black">Place</th>
+        <th style="color: black">Vehicle</th>
+        <th style="color: black">Description</th>
+        <th style="color: black">Trip start date</th>
+        <th style="color: black">Trip end date</th>
+        <th style="color: black">Start time</th>
+        <th style="color: black">Start Place</th>
+        <th style="color: black">View Request</th>
+        <th style="color: black">Add Image/Video</th>
+        <!-- <th style="color: black">Feedback</th> -->
+     </tr>
+     </thead>
+   {% for row in data['user'] %}
+
+   <tr>
+        <td style="color: white">{{row['Place']}}</td>
+        <td style="color: white">{{row['Vehicle']}}</td>
+        <td style="color: white">{{row['Description']}}</td>
+        <td style="color: white">{{row['Tripstartdate']}}</td>
+        <td style="color: white">{{row['Tripenddate']}}</td>
+        <td style="color: white">{{row['Starttime']}}</td>
+        <td style="color: white">{{row['Startplace']}}</td>
+        <td><a href="user_view_trips_request?tid={{row['Trips_id']}}">View Request</a></td>
+        <td><a href="user_add_image?tid={{row['Trips_id']}}">Add</a></td>
+        <!-- <td><a href="user_view_feedback?tid={{row['Trips_id']}}">View</a></td>
+ -->
+
+   </tr>
+
+   {% endfor %}
+</table>
+
+</form>
+</body>
+</div>
+</div>
+</div>
+</center>
+
+
+{% include 'footer.html' %}

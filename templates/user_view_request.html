@@ -1,0 +1,46 @@
+ {% include 'user_header.html' %}
+
+ <center>
+<div style=" background: url('/static/img/iii.jpg') no-repeat center / cover; 
+    height: 750px;
+    width: 100%;
+    display: table;
+    " class="">
+        <div class="hero-content">
+            <div class="hero-text">
+
+    <body>
+                <h2 style="color: white">Request</h2>
+
+                <form method="post">
+        <table border="1" class="table"  style="width: 900px;background-color: black">
+            <thead style="background-color: white ">
+            <tr>
+            
+                <th>Vehicle</th>
+                <th>Requests</th>
+            
+
+             </tr>
+             </thead>
+            {% for row in data['req'] %}
+            <tr>
+                
+                <td style="color: white">{{row['Vehicle']}}</td>
+                <td><a href="user_view_req?cid={{row['category_id']}}">View Request</a></td>
+                
+              
+             
+               
+             
+            </tr>
+            {% endfor %}
+        </table>
+     </form>  
+
+     </body>
+ </div>
+</div>
+</div>
+ </center>
+ {% include 'footer.html' %}

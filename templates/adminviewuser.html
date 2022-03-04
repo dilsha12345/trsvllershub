@@ -1,0 +1,64 @@
+{% include 'admin_header.html' %}
+  <div style=" background: url('/static/img/iii.jpg') no-repeat center / cover; 
+    height: 750px;
+    width: 100%;
+    display: table;
+    " class="">
+        <div class="hero-content">
+            <div class="hero-text">
+                <center>
+                <h2 style="color: white">View User</h2>
+
+                <form method="">
+        <table border="1" class="table"  style="width: 750px;background-color: black; margin-left: -11em !important" >
+            <thead style="background-color: white">
+                
+          
+            <tr>
+                <th style="color: black">Firstname</th>
+                <th style="color: black">Lastname</th>
+                <th style="color: black">Address</th>
+                <th style="color: black">Age</th>
+                <th style="color: black">Gender</th>
+                <th style="color: black">Place</th>
+                <th style="color: black">Phone</th>
+                <th style="color: black">Email</th>
+                <th style="color: black">Idproof</th>
+                <th style="color: black">Status</th>
+
+             </tr>
+               </thead>
+            {% for row in data['user'] %}
+            <tr>
+                <td style="color: white">{{row['Firstname']}}</td>
+                <td style="color: white">{{row['Lastname']}}</td>
+                <td style="color: white">{{row['Address']}}</td>
+                <td style="color: white">{{row['Age']}}</td>
+                <td style="color: white">{{row['Gender']}}</td>
+                <td style="color: white">{{row['Place']}}</td>
+                <td style="color: white">{{row['Phoneno:']}}</td>
+                <td style="color: white">{{row['Email']}}</td>
+                <td style="color: white"><a href="/{{row['Idproof']}}">ID</a></td>
+                <td style="color: white">{{row['Status']}}</td>
+                
+                    <td><a href="?action=accept&login_id={{row['login_id'] }}">Accept</a></td>
+                    <td><a href="?action=reject&login_id={{row['login_id'] }}">Reject</a></td>
+             
+            </tr>
+            {% endfor %}
+        </table>
+     </form>  
+
+     </body>
+         </div><!-- /.hero-text -->
+        </div><!-- /.hero-content -->
+    </div><!-- /.hero --> 
+ 
+</center>
+      
+
+  
+{% include 'footer.html' %}
+
+
+

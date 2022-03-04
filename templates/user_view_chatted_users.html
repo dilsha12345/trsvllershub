@@ -1,0 +1,105 @@
+{% include 'user_header.html' %}
+
+<center>
+ 
+    <div style=" background: url('/static/img/iii.jpg') no-repeat center / cover; 
+    height: 750px;
+    width: 100%;
+    display: table;
+    " class="">
+        <div class="hero-content">
+            <div class="hero-text">
+
+                    
+                <body>
+                	
+                <!-- <h2 style="color: white">View Users</h2>
+	<form method="post">
+
+        <table border="10" class="table" style="width: 900px;background-color: white" >
+         
+         {% for row in data['user'] %}
+         
+         
+                {% if row['Request_id']==data['Request_id'] %}
+<tr>
+                <td style="padding-left: 200px;color: red">{{ row['Message'] }}</td>
+                {% else %}
+                <td style="padding-right: 200px">{{ row['Message'] }}</td>
+         </tr>
+            {% endif %}
+        
+         {% endfor %}
+
+         
+
+
+
+     </form>
+ </table>
+
+ <table>
+     
+ </table>
+</form>
+</body>
+
+
+
+</div>
+</div>
+</div>
+</center>
+
+
+ -->
+
+
+
+<form method="post">
+    <center>
+        <h2 style="color: white">Chat With {{ data['name'] }}</h2>
+<div style="width: 800px;height: 300px;background-color: gray;overflow-y: scroll;margin-top: px">
+    
+
+<table class="table">
+    {% if data['user'] %}
+
+        {% for row in data['user'] %}
+       
+        <tr>
+        {% if data['uid'] |int == row['Sender_id'] |int %}
+            
+                
+                <td><h3 >{{row['Message']}} </h3></td>
+                <td></td>
+            
+        {% else %}
+            <td></td>
+            <td><h3>{{row['Message']}} {{ data['uid'] }}</h3></td>
+            
+        
+        {% endif %}
+</tr>
+        {% endfor %}
+
+    {% endif %}
+    
+</table>
+</div>
+<table>
+    <tr>
+        <td><input type="text" name="msg" class="form-control"></td>
+        <td><input type="submit" name="csubmit" class="btn btn-success" value="SEND"></td>
+    </tr>
+</table>
+</center>
+</form>
+</div>
+
+
+
+
+
+
+{% include 'footer.html' %}

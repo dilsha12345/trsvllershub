@@ -1,0 +1,108 @@
+{% include 'user_header.html' %}
+
+
+<center>
+
+<div style=" background: url('/static/img/iii.jpg') no-repeat center / cover; 
+    height: 750px;
+    width: 100%;
+    display: table;
+    " class="">
+        <div class="hero-content">
+            <div class="hero-text">
+   <body>
+ <!--    <table >
+        <tr>
+            <td><input type="text" name="search"></td>
+            <td><input type="submit" name="submit" value="Search"></td>
+        </tr>
+        
+            
+        
+    </table> -->
+        <!-- {% if data['res'] %}
+        <table class="table" style="width:1200px;background-color: black">
+            <thead style="background-color: white">
+
+            <tr>
+                <th style="color: black">Firstname</th>
+                <th style="color: black">Place</th>
+                <th style="color: black">Vehicle</th>
+                <th style="color: black">Description</th>
+                <th style="color: black">Tripstartdate</th>
+                <th style="color: black">Tripenddate</th>
+                <th style="color: black">Starttime</th>
+                <th style="color: black">Startplace</th>
+                <th style="color: black">Request</th>
+                
+             </tr>
+            {% for row in data['res'] %}
+            <tr>
+                <td style="color: white">{{row['Firstname'] }}</td>
+                <td style="color: white">{{row['Place']}}</td>
+                <td style="color: white">{{row['Vehicle']}}</td>
+                <td style="color: white">{{row['Description']}}</td>
+                <td style="color: white">{{row['Tripstartdate']}}</td>
+                <td style="color: white">{{row['Tripenddate']}}</td>
+                <td style="color: white">{{row['Starttime']}}</td>
+                <td style="color: white">{{row['Startplace']}}</td>
+                <td style="color: white">{{row['rstatus']}}</td>
+                {% if row['rstatus']=='pending' %}
+                
+                    <td><a href="?action=accept&rid={{row['Request_id'] }}&tid={{data['tid']}}">Accept</a></td>
+                    <td><a href="?action=reject&rid={{row['Request_id'] }}&tid={{data['tid']}}">Reject</a></td>
+                {% endif %}
+               
+                
+                
+                
+            </tr>
+            {% endfor %}
+
+        </table>
+        {% endif %} -->
+
+
+
+        
+        <h2 style="font-size:35px;color: white">View Trips</h2>
+    <form method="post"><br>
+        <table border="1" class="table" style="width: 1300px;background-color: black">
+           <thead style="background-color: white">
+            <tr>
+            	<th style="color: black">Firstname</th>
+                <th style="color: black">Place</th>
+                <th style="color: black">Vehicle</th>
+                <th style="color: black">Description</th>
+                <th style="color: black">Tripstartdate</th>
+                <th style="color: black">Tripenddate</th>
+                <th style="color: black">Starttime</th>
+                <th style="color: black">Startplace</th>
+                <th style="color: black">Request</th>
+                
+             </tr>
+             </thead>
+            {% for row in data['user'] %}
+            <tr>
+            	<td style="color: white">{{row['Firstname'] }}</td>
+                <td style="color: white">{{row['tplace']}}</td>
+                <td style="color: white">{{row['Vehicle']}}</td>
+                <td style="color: white">{{row['Description']}}</td>
+                <td style="color: white">{{row['Tripstartdate']}}</td>
+                <td style="color: white">{{row['Tripenddate']}}</td>
+                <td style="color: white">{{row['Starttime']}}</td>
+                <td style="color: white">{{row['Startplace']}}</td>
+                <td><a href="?action=request&tid={{row['Trips_id']}}&cid={{row['category_id']}}">REQUEST</a></td>
+<!--                 <td><a href="user_chat?rid={{row['User_id']}}">Chat</a></td> -->
+                
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+</body>
+</div>
+</div>
+</div>
+</center>
+
+{% include 'footer.html' %}

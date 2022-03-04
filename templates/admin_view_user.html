@@ -1,0 +1,61 @@
+{% include 'admin_header.html' %}
+
+<center>
+    <div style=" background: url('/static/img/iii.jpg') no-repeat center / cover; 
+    height: 750px;
+    width: 100%;
+    display: table;
+    " class="">
+        <div class="hero-content">
+            <div class="hero-text">
+                <body>
+                    
+                        <h2 style="padding-top: 3px;color: white">User Details</h2>
+       <form method="">
+        <table border="1" class="table" style="width: 900px;background-color: black">
+            <thead style="background-color: white">
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                 <th>Address</th>
+                <th>Age</th>
+                <th>Place</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Idproof</th>
+                <th>Status</th>
+
+             </tr>
+             </thead>
+             {% for row in data['user'] %}
+            <tr>
+                <td style="color: white">{{row['Firstname']}}</td>
+                <td style="color: white">{{row['Lastname']}}</td>
+                <td style="color: white">{{row['Address']}}</td>
+                <td style="color: white">{{row['Age']}}</td>
+                <td style="color: white">{{row['Place']}}</td>
+                <td style="color: white">{{row['Phoneno:']}}</td>
+                <td style="color: white">{{row['Email']}}</td>
+                <td><img src="/{{row['Idproof']}}" style="width:100px; height:100px;"">ID</></a></td>
+                <td style="color: white">{{row['Status']}}</td>
+            </tr>
+            {% endfor %}
+          </table>
+     </form>   
+
+
+</center>
+</body>
+            </div><!-- /.hero-text -->
+        </div><!-- /.hero-content -->
+    </div><!-- /.hero -->
+
+
+
+      
+
+    
+    
+{% include 'footer.html' %}	
+
+     

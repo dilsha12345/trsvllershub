@@ -1,0 +1,45 @@
+{% include 'admin_header.html' %}	
+	<center>
+        <div style=" background: url('/static/img/iii.jpg') no-repeat center / cover; 
+    height: 750px;
+    width: 100%;
+    display: table;
+    " class="">
+        <div class="hero-content">
+            <div class="hero-text">
+                <center>
+                	<body>
+                <h2 style="color: white">View Complaints</h2>
+    <form method="">
+        <table border="1" class="table" style="width: 900px;background-color: black">
+            <thead style="background-color: white">
+            <tr>
+                <th style="color: black">Firstname</th>
+                <th style="color: black">Lastname</th>
+                 <th style="color: black">Complaint</th>
+                <th style="color: black">Reply</th>
+                <th style="color: black">Date</th>
+            </tr>
+        </thead>
+            {% for row in data['user'] %}
+            <tr>
+            	<td style="color: white">{{row['Firstname'] }}</td>
+                <td style="color: white">{{row['Lastname']}}</td>
+                <td style="color: white">{{row['Complaint']}}</td>
+                {% if row['Reply']=="pending" %}
+                <td><a href="admin_send_reply?id={{row['Complaint_id']}}">Send Reply</a></td>
+                {% else %}
+                <td style="color: white">{{row['Reply']}}</td>
+                {% endif %}
+                <td style="color: white">{{row['Date']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+</body>
+</div>
+</div>
+</div>
+</center>
+
+{% include 'footer.html' %}

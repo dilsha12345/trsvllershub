@@ -1,0 +1,57 @@
+{% include 'user_header.html' %}
+
+<center>
+
+    <div style=" background: url('/static/img/iii.jpg') no-repeat center / cover; 
+    height: 750px;
+    width: 100%;
+    display: table;
+    " class="">
+        <div class="hero-content">
+            <div class="hero-text">
+                    <body>
+                <h2 style="color: white">View Request</h2>
+	<form method="post">
+        <table border="1" class="table" style="width: 900px;background-color: black" >
+            <thead style="background-color: white">
+            <tr>
+            
+                <th style="color: black">Place</th>
+                <th style="color: black">Vehicle</th>
+                <th style="color: black">Status</th> 
+                <th style="color: black">Date</th>
+               <th style="color: black">Details</th>
+              
+            </tr>
+            </thead>
+         {% for row in data['rqt'] %}
+         <tr>
+                
+                <td style="color: white">{{row['pl']}}</td>
+                <td style="color: white">{{row['Vehicle']}}</td>
+                <td style="color: white">{{row['Status']}}</td>
+                <td style="color: white">{{row['Date']}}</td>
+                <td><a href="user_viewplannerinfo?pid={{row['User_id']}}">View Details</a></td>
+               {% if row['Status']=="Accept" %}
+               <td><a href="user_add_images?tid={{row['Trip_id']}}">Add images</a></td>
+               <td><a href="user_add_feedback?tid={{row['Trip_id']}}">Add feedback</a></td>
+               <td><a href="user_chat?uid={{row['User_id']}}">CHAT</a></td>
+
+               {% endif %}
+                
+
+
+        </tr>
+
+         {% endfor %}
+
+     </form>
+ </table>
+</form>
+</body>
+</div>
+</div>
+</div>
+</center>
+
+{% include 'footer.html' %}

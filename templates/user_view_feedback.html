@@ -1,0 +1,35 @@
+{% include 'user_header.html' %}
+<center>
+
+    <div style=" background: url('/static/img/iii.jpg') no-repeat center / cover; 
+    height: 750px;
+    width: 100%;
+    display: table;
+    " class="">
+        <div class="hero-content">
+            <div class="hero-text">
+	<h2 style="color: white">View Feedback</h2>
+<form method="post">
+	<table border="1" class="table"  style="width: 900px;background-color: black">
+        <thead style="background-color: white">
+            <tr>
+                <th style="color: black">Username</th>
+                <th style="color: black">Feedback</th>
+                <th style="color: black">Date</th>
+            </tr>
+            </thead>
+            {% for row in data['feedback'] %}
+            <tr>
+            	<td style="color: white">{{row['Firstname'] }}</td>
+                <td style="color: white">{{row['Feedback']}}</td>
+                <td style="color: white">{{row['Date']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+</body>
+</div>
+</div>
+</div>
+</center>
+{% include 'footer.html' %}

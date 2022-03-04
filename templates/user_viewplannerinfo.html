@@ -1,0 +1,59 @@
+ {% include 'user_header.html' %}
+
+ <center>
+ <div style=" background: url('/static/img/iii.jpg') no-repeat center / cover; 
+    height: 750px;
+    width: 100%;
+    display: table;
+    " class="">
+        <div class="hero-content">
+            <div class="hero-text">
+
+    <body>
+                <h2 style="color: white">View Details</h2>
+
+                <form method="post">
+        <table border="1" class="table"  style="width: 900px;background-color: black">
+            <thead style="background-color: white">
+            <tr>
+                <th style="color: black">Firstname</th>
+                <th style="color: black">Lastname</th>
+                 <th style="color: black">Address</th>
+                <th style="color: black">Age</th>
+                <th style="color: black">Gender</th>
+                <th style="color: black">Place</th>
+                <th style="color: black">Phone</th>
+                <th style="color: black">Email</th>
+                <th style="color: black">Idproof</th>
+                <th> </th>
+               
+
+             </tr>
+             </thead>
+            {% for row in data['user'] %}
+            <tr>
+                <td style="color: white">{{row['Firstname']}}</td>
+                <td style="color: white">{{row['Lastname']}}</td>
+                <td style="color: white">{{row['Address']}}</td>
+                <td style="color: white">{{row['Age']}}</td>
+                <td style="color: white">{{row['Gender']}}</td>
+                <td style="color: white">{{row['Place']}}</td>
+                <td style="color: white">{{row['Phoneno:']}}</td>
+                <td style="color: white">{{row['Email']}}</td>
+                <td style="color: white"><a href="/{{row['Idproof']}}">ID</a></td>
+                <td><a href="user_chat?rid={{row['user_id']}}">Chat</a></td>
+              
+             
+               
+             
+            </tr>
+            {% endfor %}
+        </table>
+     </form>  
+
+     </body>
+ </div>
+</div>
+</div>
+ </center>
+ {% include 'footer.html' %}

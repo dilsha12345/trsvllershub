@@ -1,0 +1,57 @@
+{% include 'admin_header.html' %}	
+	<center>
+         <div style=" background: url('/static/img/iii.jpg') no-repeat center / cover; 
+    height: 750px;
+    width: 100%;
+    display: table;
+    " class="">
+        <div class="hero-content">
+            <div class="hero-text">
+                <center>
+                	<body>
+                <h2 style="color: white">View Trip</h2>
+    <form method="">
+        <table border="1" class="table" style="width: 900px;background-color: black">
+            <thead style="background-color: white">
+            <tr>
+
+            	<th>User</th>
+                <th>Place</th>
+                <th>Vehicle</th>
+                <th>Description</th>
+                <th>Tripstartdate</th>
+                <th>Tripenddate</th>
+                <th>Starttime</th>
+                <th>Startplace</th>
+             </tr>
+         </thead>
+            {% for row in data['user'] %}
+            <tr>
+            	<td style="color: white">{{row['Firstname'] }}</td>
+                <td style="color: white">{{row['tplace']}}</td>
+                <td style="color: white">{{row['Vehicle']}}</td>
+                <td style="color: white">{{row['Description']}}</td>
+                <td style="color: white">{{row['Tripstartdate']}}</td>
+                <td style="color: white">{{row['Tripenddate']}}</td>
+                <td style="color: white">{{row['Starttime']}}</td>
+                <td style="color: white">{{row['Startplace']}}</td>
+                <td><a href="admin_view_user?&id={{row['User_id']}}">View User</a></td>
+                <td><a href="admin_view_request?&id={{row['Trips_id']}}">View other request</a></td>
+                <td><a href="admin_view_feedback?&id={{row['Trips_id']}}">View Feedback</a></td>
+                <td><a href="admin_view_image?&id={{row['Trips_id']}}">View Image & Video</a></td>
+
+
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+</body>
+   
+         </div><!-- /.hero-text -->
+        </div><!-- /.hero-content -->
+    </div><!-- /.hero --> 
+ 
+</center>
+ 
+
+{% include 'footer.html' %}
